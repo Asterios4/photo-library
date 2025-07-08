@@ -11,7 +11,7 @@
     <img [src]="photo.url" [alt]="'Photo ' + photo.id" />
     <mat-icon
       class="favorite-icon"
-      [color]="photo.isFavorite ? 'warn' : 'grey'"
+      [ngClass]="{ favorited: photo.isFavorite, outlined: !photo.isFavorite }"
     >
       {{ photo.isFavorite ? 'favorite' : 'favorite_border' }}
     </mat-icon>
