@@ -1,0 +1,23 @@
+<div class="photo-grid">
+  <div
+    class="photo-item"
+    *ngFor="let photo of photos"
+    (click)="toggleFavorite(photo)"
+    role="button"
+    tabindex="0"
+    [attr.aria-label]="'Toggle favorite for photo ' + photo.id"
+    (keydown.enter)="toggleFavorite(photo)"
+  >
+    <img [src]="photo.url" [alt]="'Photo ' + photo.id" />
+    <mat-icon
+      class="favorite-icon"
+      [color]="photo.isFavorite ? 'warn' : 'grey'"
+    >
+      {{ photo.isFavorite ? 'favorite' : 'favorite_border' }}
+    </mat-icon>
+  </div>
+</div>
+
+<div class="loading-spinner" *ngIf="loading">
+  <mat-progress-spinner diameter="40" mode="indeterminate"></mat-progress-spinner>
+</div>

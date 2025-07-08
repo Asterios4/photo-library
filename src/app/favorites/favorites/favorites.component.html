@@ -1,0 +1,9 @@
+<div *ngIf="favorites.length === 0" class="no-favorites-message">
+  There are no favorite photos.
+</div>
+
+<div class="favorites-grid" *ngIf="favorites.length > 0">
+  <div class="favorite-item" *ngFor="let photo of favorites" (click)="openPhoto(photo)">
+    <img [src]="photo.url" [alt]="photo.id" />
+  </div>
+</div>
